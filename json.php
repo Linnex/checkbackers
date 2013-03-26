@@ -5,8 +5,8 @@ $project = htmlspecialchars($_GET["project"]);
 $page = htmlspecialchars($_GET["page"]);
 $url = 'http://catarse.me/pt/projects/' . $project .  '/backers?page=' . $page;
 $cache_file = "data/" . $project . "_" . $page . ".json";
-if (file_exists($cache_file) && (filemtime($cache_file) > (time() - 60 * 5 ))) {
-   // Cache file is less than five minutes old. 
+if (file_exists($cache_file) && (filemtime($cache_file) > (time() - 60 * 60 * 24))) {
+   // Cache file is less than a day old. 
    // Don't bother refreshing, just use the file as-is.
    $file = file_get_contents($cache_file);
 } else {
