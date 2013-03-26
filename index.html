@@ -40,7 +40,7 @@
                     'async': false,
                     'global': false,
                     'url': url,
-                    'dataType': "json",
+                    'dataType': "jsonp",
                     'success': function (data) {
                             json = data;
                         }
@@ -49,7 +49,7 @@
                 };
                 $(function() {
                 var url = "http://catarse.me/pt/projects/" + PROJETO + "/backers?page=";
-                url = "data/backers_page=";
+                url = "json.php?project=" + PROJETO + "&page=";
                 backers = [];
                 var page = 1
                 var data = loadJson(url + page);
